@@ -1,0 +1,76 @@
+@font-face {
+    font-family: azonix;
+    src: url(assets/fonts/Azonix.otf)
+}
+
+@font-face {
+    font-family: bigJohnPro;
+    src: url(assets/fonts/BigJohnPRO-Regular.otf)
+}
+
+body {
+    font-family: bigJohnPro;
+}
+
+#page-header {
+    text-align: center;
+    font-family: azonix, sans-serif;
+    font-size: 3em;
+}
+
+.guess-input {
+    text-align: center;
+    margin: 0.5em;
+    border-radius: 25px;
+    height: 3em;
+    width: 20em;
+}
+
+.guess-input:focus {
+    height: 3.5em;
+    width: 25em;
+    border: black;
+}
+
+.guess-input-inactive {
+    text-align: center;
+    margin: 0.5em;
+    border-radius: 25px;
+    height: 3em;
+    width: 20em;
+    background-color: gray;
+    border: black;
+}
+
+.guess-input-inactive:focus {
+    border: gray;
+}
+
+#guess-area {
+    text-align: center;
+}
+
+#results {
+    text-align: center;
+}
+
+button {
+    border-radius: 25px;
+    padding: 1em;
+    font-family: bigJohnPro;
+    background-color: lime;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: rgb(255, 0, 255);
+}
+
+button:active {
+    background-color: blue;
+}
+
+#quote {
+    text-align: center;
+    font-size: 2em;
+}
