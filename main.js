@@ -1,14 +1,4 @@
-function processGuess(event) {
-    var guess = document.getElementById("guess-input").value;
-    
-    if (guess != quoteAuthor) {
-        results.textContent = "Incorrect!"
-    } else {
-        results.textContent = "Correct!"
-    }
-
-    event.preventDefault();
-}
+var totalGuesses = 0;
 
 function jsonChoice(jsonData) {
     // https://stackoverflow.com/a/49687370
@@ -25,22 +15,73 @@ function jsonChoice(jsonData) {
     return [randKey, jsonData[randKey]]
 }
 
-function processJSON(event) {
-    var json = this.responseText;
-    var quotes = JSON.parse(json);
-
-    const quote = document.getElementById("quote"); // the quote element in the HTML
-
-    const choice = jsonChoice(quotes);
-    const quoteAuthor = choice[0]
-    quote.innerHTML = '"' + choice[1][Math.floor(Math.random() * choice.length)] + '"';
+function readTextFile(file, callback) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.overrideMimeType("application/json");
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function() {
+        if (rawFile.readyState === 4 && rawFile.status == "200") {
+            callback(rawFile.responseText);
+        }
+    }
+    rawFile.send(null);
 }
 
-var xhr = new XMLHttpRequest();
-xhr.open("GET", "assets/game/quotes.json");
-xhr.addEventListener('load', processJSON);
-xhr.send();
+function randInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
 
-const form = document.getElementById("guess-form");
-const results = document.getElementById("results");
-form.addEventListener('submit', processGuess);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
+
+readTextFile("assets/game/quotes.json", function(text){
+    var data = JSON.parse(text);
+    const choice = jsonChoice(data);
+    const quoteAuthor = choice[0]
+    const quote = choice[1][randInt(0, choice[1].length - 1)]
+
+    document.getElementById("quote").textContent = quote;
+
+    const form = document.getElementById("guess-form");
+    const results = document.getElementById("results");
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var guess = document.getElementById("active-guess-input").value;
+    
+        checkQuotes: if (guess != quoteAuthor) {
+            document.body.style.backgroundColor = "red";
+            document.body.style.color = "white"
+
+            setTimeout(() => document.body.style.backgroundColor = "white", 2000);
+            setTimeout(() => document.body.style.color = "black", 2000);
+
+            if (totalGuesses > 5) { // six guesses
+                results.textContent = "You have used all your guesses.\nThe answer was " + quoteAuthor + "!"
+                document.getElementById("active-guess-input").setAttribute("readonly", "readonly")
+                document.getElementById("submit").disabled = true;
+
+                break checkQuotes;
+            }
+
+            totalGuesses++;
+            results.textContent = "Incorrect. " + String(7 - totalGuesses) + " guesses left!"
+
+            
+        } else {
+            document.body.style.backgroundColor = "green";
+            document.body.style.color = "white"
+
+            setTimeout(() => document.body.style.backgroundColor = "white", 2000);
+            setTimeout(() => document.body.style.color = "black", 2000);
+
+            results.innerHTML = "<strong>Beautiful!</strong>";
+            document.getElementById("submit").disabled = true;
+        }
+
+        
+    });
+})
+
