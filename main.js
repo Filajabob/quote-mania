@@ -1,4 +1,10 @@
 var totalGuesses = 0;
+var hasVisited = sessionStorage.getItem('washere');
+
+if (!hasVisited) {
+    alert("Try to guess who said the quote.");
+    sessionStorage.setItem('washere', true);
+}
 
 function jsonChoice(jsonData) {
     // https://stackoverflow.com/a/49687370
