@@ -57,9 +57,9 @@ readTextFile("assets/game/quotes.json", function(text){
 
         var guess = document.getElementById("active-guess-input").value;
     
-        checkQuotes: if (guess.toLowerCase() != quoteAuthor.toLowercase()) {
+        checkQuotes: if (guess.toLowerCase() != quoteAuthor.toLowerCase()) {
             document.body.style.backgroundColor = "red";
-            document.body.style.color = "white"
+            document.body.style.color = "white";
 
             setTimeout(() => document.body.style.backgroundColor = "white", 2000);
             setTimeout(() => document.body.style.color = "black", 2000);
