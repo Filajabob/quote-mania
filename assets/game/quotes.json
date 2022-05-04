@@ -1,6 +1,6 @@
 {
     "Liam": [
-        "it was for a while", "Wat"
+        "it was for a while", "Wat", "It's not creepy it's for a game"
     ],
     "Vissar": [
         "yo at school I need to tell you something", "um what math class thing?", "great, that means we have a substitute", "YAY... 😐"
@@ -9,13 +9,13 @@
         "I wanna have scary dreams so I'll buy it", "MR ROSES HOUSE", "Take that back or you like Liam"
     ],
     "Muhammad": [
-        "what did you dm me.. repeat it", "I'll reserve some land for Lucas"
+        "what did you dm me.. repeat it", "I'll reserve some land for Lucas", "I'm King Dorito™", "Generate me", "This student likes Lucas" 
     ],
     "Lucas": [
-        "AND ONE!", "he sold it"
+        "AND ONE!", "he sold it", "Liam has no contributions", "I can't look in that direction"
     ],
     "Lana": [
-        "I'm so smart", "MALIIIIIKKKKaaa", "Can I go to the bathroom"
+        "I'm so smart", "MALIIIIIKKKKaaa", "Can I go to the bathroom", "Why can't no one understand me", "No I wrote E-I-N-G-E"
     ],
     "Malik": [
         "I don't wanna play", "OH NAHHHHH"
@@ -25,5 +25,11 @@
     ],
     "Aisha": [
         "Get your a## back here"
+    ],
+    "Turner": [
+        "Lucas said this"
+    ],
+    "Nosa": [
+        "How the h*ll are we supposed to know?"
     ]
 }
