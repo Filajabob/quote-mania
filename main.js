@@ -57,7 +57,7 @@ readTextFile("assets/game/quotes.json", function(text){
 
         var guess = document.getElementById("active-guess-input").value;
     
-        checkQuotes: if (guess != quoteAuthor) {
+        checkQuotes: if (guess.toLowerCase() != quoteAuthor.toLowercase()) {
             document.body.style.backgroundColor = "red";
             document.body.style.color = "white"
 
