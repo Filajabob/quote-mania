@@ -83,7 +83,7 @@ readTextFile("assets/game/quotes.json", function(text){
             setTimeout(() => document.body.style.backgroundColor = "white", 2000);
             setTimeout(() => document.body.style.color = "black", 2000);
 
-            results.innerHTML = "<strong>Beautiful!</strong>";
+            results.innerHTML = "<strong>How'd you know?</strong>";
             document.getElementById("submit").disabled = true;
         }
 
