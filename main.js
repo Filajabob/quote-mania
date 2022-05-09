@@ -69,11 +69,15 @@ readTextFile("assets/game/quotes.json", function(text){
                 document.getElementById("active-guess-input").setAttribute("readonly", "readonly")
                 document.getElementById("submit").disabled = true;
 
+                if (randInt(0, 3) == 1) {
+                    setTimeout(() => location.href = "https://cat-bounce.com", 3000);
+                }
+
                 break checkQuotes;
             }
 
             totalGuesses++;
-            results.textContent = "Incorrect. " + String(7 - totalGuesses) + " guesses left!"
+            results.textContent = "Incorrect. " + String(6 - totalGuesses) + " guesses left!"
 
             
         } else {
