@@ -64,7 +64,7 @@ readTextFile("assets/game/quotes.json", function(text){
             setTimeout(() => document.body.style.backgroundColor = "white", 2000);
             setTimeout(() => document.body.style.color = "black", 2000);
 
-            if (totalGuesses > 5) { // six guesses
+            if (totalGuesses > 4) { // five guesses
                 results.textContent = "You have used all your guesses.\nThe answer was " + quoteAuthor + "!"
                 document.getElementById("active-guess-input").setAttribute("readonly", "readonly")
                 document.getElementById("submit").disabled = true;
