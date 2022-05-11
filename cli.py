@@ -5,14 +5,14 @@ import subprocess
 
 print("Welcome to the Quote Mania Quote Adding Tool! "
       "To stop add quotes and save your changes, press Ctrl+C. "
-      "Please note that Git must be installed and you need to have a Github account that has access to Filajabob/quote-mania")
+      "Please note that Git must be installed and you need to have a Github account that has access to Filajabob/quote-mania for the automatic update feature to work.")
 
 while True:
     try:
         student = input("Student: ").capitalize()
         quote = input("Quote: ")
     except KeyboardInterrupt:
-        print("Staging changes...")
+        print("\n\nStaging changes...")
         subprocess.run("git add .", stdout=subprocess.DEVNULL)
         print("Changes staged.\n")
 
