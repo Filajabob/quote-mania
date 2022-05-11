@@ -13,19 +13,19 @@ while True:
     except KeyboardInterrupt:
         print("Staging changes...")
         subprocess.run("git add .")
-        print("Changes staged.")
+        print("Changes staged.\n")
 
         print("Committing to local repository...")
         subprocess.run("git commit -m \"Quotes added to assets/game/quotes.json (automatic process)\"")
-        print("Changes commited.")
+        print("Changes commited.\n")
 
         print("Pulling remote repository...")
         subprocess.run("git pull https://github.com/Filajabob/quote-mania master")
-        print("Local repository updated.")
+        print("Local repository updated.\n")
         
         print("Pushing changes...")
         subprocess.run("git push https://github.com/Filajabob/quote-mania master")
-        print("Changes pushed to https://github.com/Filajabob/quote-mania")
+        print("Changes pushed to https://github.com/Filajabob/quote-mania\n")
 
         print("Quitting...")
 
