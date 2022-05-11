@@ -14,12 +14,21 @@ while True:
         print("Staging changes...")
         subprocess.run("git add .")
         print("Changes staged.")
+
+        print("Committing to local repository...")
         subprocess.run("git commit -m \"Quotes added to assets/game/quotes.json (automatic process)\"")
         print("Changes commited.")
+
+        print("Pulling remote repository...")
+        subprocess.run("git pull https://github.com/Filajabob/quote-mania master")
+        print("Local repository updated.")
+        
+        print("Pushing changes...")
         subprocess.run("git push https://github.com/Filajabob/quote-mania master")
         print("Changes pushed to https://github.com/Filajabob/quote-mania")
 
         print("Quitting...")
+
         break
 
     with open("assets/game/quotes.json", 'r+') as f:
