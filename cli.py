@@ -1,4 +1,5 @@
 import json
+from re import sub
 import subprocess
 
 
@@ -12,19 +13,19 @@ while True:
         quote = input("Quote: ")
     except KeyboardInterrupt:
         print("Staging changes...")
-        subprocess.run("git add .")
+        subprocess.run("git add .", stdout=subprocess.DEVNULL)
         print("Changes staged.\n")
 
         print("Committing to local repository...")
-        subprocess.run("git commit -m \"Quotes added to assets/game/quotes.json (automatic process)\"")
+        subprocess.run("git commit -m \"Quotes added to assets/game/quotes.json (automatic process)\"", stdout=subprocess.DEVNULL)
         print("Changes commited.\n")
 
         print("Pulling remote repository...")
-        subprocess.run("git pull https://github.com/Filajabob/quote-mania master")
+        subprocess.run("git pull https://github.com/Filajabob/quote-mania master", stdout=subprocess.DEVNULL)
         print("Local repository updated.\n")
         
         print("Pushing changes...")
-        subprocess.run("git push https://github.com/Filajabob/quote-mania master")
+        subprocess.run("git push https://github.com/Filajabob/quote-mania master", stdout=subprocess.DEVNULL)
         print("Changes pushed to https://github.com/Filajabob/quote-mania\n")
 
         print("Quitting...")
